@@ -91,4 +91,36 @@ Error: unexpected '>' in ">"
 4 4 0.43      1     A
 5 5 0.36      2     A
 6 6 0.29      2     A
+> df <read.cvs(PATH)
+Error in read.cvs(PATH) : could not find function "read.cvs"
+> df<- read.csv(PATH)
+> #Apply the ANOVA test function 
+> anova_one_way<- aov(time-poison,data=df)
+Error: object 'poison' not found
+> df<- read.csv(PATH)
+> 
+> anova_one_way<- aov(time-poison,data=df)
+Error: object 'poison' not found
+> > df<- read.csv(PATH)
+Error: unexpected '>' in ">"
+> 
+> anova_one_way<- aov(time~poison,data=df)
+> 
+> anova_one_way
+Call:
+   aov(formula = time ~ poison, data = df)
+
+Terms:
+                   poison Residuals
+Sum of Squares  0.9316125 2.0734688
+Deg. of Freedom         1        46
+
+Residual standard error: 0.2123097
+Estimated effects may be unbalanced
+> summary(anova_one_way)
+            Df Sum Sq Mean Sq F value   Pr(>F)    
+poison       1 0.9316  0.9316   20.67 3.96e-05 ***
+Residuals   46 2.0735  0.0451                     
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 > 
